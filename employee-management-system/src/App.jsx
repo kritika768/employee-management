@@ -3,15 +3,14 @@ import './App.css'
 import { API_BASE_URL, APP_NAME } from './utils/constants';
 import axiosInstance from './api/axiosInstance';
 import { API_ENDPOINTS } from "./api/endpoints";
+import { getEmployees } from './features/employee/employeeService';
 
 function App() {
 useEffect(() => {
     const fetchUsers = async () => {
       try {
         const response =
-        await axiosInstance.get(
-          API_ENDPOINTS.USERS
-        );
+        await getEmployees();
         console.log(response.data);
       } catch (error) {
         console.log(error);
